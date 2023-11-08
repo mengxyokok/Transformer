@@ -67,10 +67,10 @@ def train_model(model, opt):
 def main():
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('-src_data', default='data/english.txt')
-    parser.add_argument('-trg_data', default='data/french.txt')
-    parser.add_argument('-src_lang', default='en')
-    parser.add_argument('-trg_lang', default='fr')
+    parser.add_argument('-src_data', type=str,default='data/english.txt')
+    parser.add_argument('-trg_data', type=str,default='data/french.txt')
+    parser.add_argument('-src_lang', type=str,default='en_core_web_sm')
+    parser.add_argument('-trg_lang', type=str,default='fr_core_news_sm')
     parser.add_argument('-no_cuda', default=True)
     parser.add_argument('-SGDR', action='store_true')
     parser.add_argument('-epochs', type=int, default=2)

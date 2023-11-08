@@ -9,15 +9,17 @@ import dill as pickle
 def read_data(opt):
     
     if opt.src_data is not None:
+        # with open(opt.src_data, 'r', encoding='utf-8') as file:
+        #     opt.src_data = file.read().strip().split('\n')
         try:
-            opt.src_data = open(opt.src_data).read().strip().split('\n')
+            opt.src_data = open(opt.src_data, 'r', encoding='utf-8').read().strip().split('\n')
         except:
             print("error: '" + opt.src_data + "' file not found")
             quit()
     
     if opt.trg_data is not None:
         try:
-            opt.trg_data = open(opt.trg_data).read().strip().split('\n')
+            opt.trg_data = open(opt.trg_data, 'r', encoding='utf-8').read().strip().split('\n')
         except:
             print("error: '" + opt.trg_data + "' file not found")
             quit()
