@@ -67,11 +67,11 @@ def train_model(model, opt):
 def main():
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('-src_data', required=True)
-    parser.add_argument('-trg_data', required=True)
-    parser.add_argument('-src_lang', required=True)
-    parser.add_argument('-trg_lang', required=True)
-    parser.add_argument('-no_cuda', action='store_true')
+    parser.add_argument('-src_data', default='data/english.txt')
+    parser.add_argument('-trg_data', default='data/french.txt')
+    parser.add_argument('-src_lang', default='en')
+    parser.add_argument('-trg_lang', default='fr')
+    parser.add_argument('-no_cuda', default=True)
     parser.add_argument('-SGDR', action='store_true')
     parser.add_argument('-epochs', type=int, default=2)
     parser.add_argument('-d_model', type=int, default=512)
@@ -86,9 +86,7 @@ def main():
     parser.add_argument('-max_strlen', type=int, default=80)
     parser.add_argument('-floyd', action='store_true')
     parser.add_argument('-checkpoint', type=int, default=0)
-
     opt = parser.parse_args()
-
     opt.device = 'cuda' if opt.no_cuda is False else 'cpu'
     if opt.device == 'cuda':
         assert torch.cuda.is_available()
